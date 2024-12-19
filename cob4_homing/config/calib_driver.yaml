@@ -24,32 +24,32 @@ drive_wheel: &drive_wheel
 
 nodes:
   ##Wheel 1
-  fl_caster_rotation_joint:
+  f_caster_rotation_joint:
     id: 1
     dcf_overlay: # "ObjectID" : "ParameterValue" (both as strings)
       "6098": "19" # homing method
       "607C": "0" # home offset
-  fl_caster_r_wheel_joint:
+  f_caster_r_wheel_joint:
     <<: *drive_wheel
     id: 2
 
   ##Wheel 2
-  b_caster_rotation_joint:
+  bl_caster_rotation_joint:
     id: 3
     dcf_overlay: # "ObjectID" : "ParameterValue" (both as strings)
       "6098": "19" # homing method
       "607C": "0" # home offset
-  b_caster_r_wheel_joint:
+  bl_caster_r_wheel_joint:
     <<: *drive_wheel
     id: 4
 
   ##Wheel 3
-  fr_caster_rotation_joint:
+  br_caster_rotation_joint:
     id: 5
     dcf_overlay: # "ObjectID" : "ParameterValue" (both as strings)
       "6098": "19" # homing method
       "607C": "0" # home offset
-  fr_caster_r_wheel_joint:
+  br_caster_r_wheel_joint:
     <<: *drive_wheel
     id: 6
 

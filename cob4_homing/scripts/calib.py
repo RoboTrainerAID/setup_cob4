@@ -12,9 +12,9 @@ from controller_manager import controller_manager_interface
 
 js_cv = threading.Condition()
 
-WHEEL1 = 'fl_caster_rotation_joint'
-WHEEL2 =  'b_caster_rotation_joint'
-WHEEL3 = 'fr_caster_rotation_joint'
+WHEEL1 = 'f_caster_rotation_joint'
+WHEEL2 = 'bl_caster_rotation_joint'
+WHEEL3 = 'br_caster_rotation_joint'
 
 # old FDMs
 #tests = {
@@ -49,9 +49,9 @@ def spawn(c):
         exit(-2)
 
 spawn('joint_state_controller')
-spawn('fl_caster_rotation_joint_position_controller')
-spawn( 'b_caster_rotation_joint_position_controller')
-spawn('fr_caster_rotation_joint_position_controller')
+spawn('f_caster_rotation_joint_position_controller')
+spawn('bl_caster_rotation_joint_position_controller')
+spawn('br_caster_rotation_joint_position_controller')
 
 def norm(val, min, max):
     while val < min: val += (max-min)
@@ -70,9 +70,9 @@ rospy.Subscriber("joint_states", JointState, handle_js)
 
 
 publishers = {
-'fl_caster_rotation_joint' : rospy.Publisher('fl_caster_rotation_joint_position_controller/command', Float64, queue_size=1),
- 'b_caster_rotation_joint' : rospy.Publisher( 'b_caster_rotation_joint_position_controller/command', Float64, queue_size=1),
-'fr_caster_rotation_joint' : rospy.Publisher('fr_caster_rotation_joint_position_controller/command', Float64, queue_size=1),
+'f_caster_rotation_joint' : rospy.Publisher('f_caster_rotation_joint_position_controller/command', Float64, queue_size=1),
+ 'bl_caster_rotation_joint' : rospy.Publisher( 'bl_caster_rotation_joint_position_controller/command', Float64, queue_size=1),
+'br_caster_rotation_joint' : rospy.Publisher('br_caster_rotation_joint_position_controller/command', Float64, queue_size=1),
 }
 
 def command(name, value):

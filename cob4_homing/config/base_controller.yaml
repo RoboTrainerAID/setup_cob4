@@ -1,22 +1,22 @@
 ## joint_names
-joint_names: [fl_caster_rotation_joint, fl_caster_r_wheel_joint, fr_caster_rotation_joint, fr_caster_r_wheel_joint, b_caster_rotation_joint, b_caster_r_wheel_joint]
+joint_names: [f_caster_rotation_joint, f_caster_r_wheel_joint, br_caster_rotation_joint, br_caster_r_wheel_joint, bl_caster_rotation_joint, bl_caster_r_wheel_joint]
 
 ## joint_state_controller
 joint_state_controller:
     type: joint_state_controller/JointStateController
     publish_rate: 50
 
-fl_caster_rotation_joint_position_controller:
+f_caster_rotation_joint_position_controller:
   type: position_controllers/JointPositionController
-  joint: fl_caster_rotation_joint
+  joint: f_caster_rotation_joint
   required_drive_mode: 1
-fr_caster_rotation_joint_position_controller:
+br_caster_rotation_joint_position_controller:
   type: position_controllers/JointPositionController
-  joint: fr_caster_rotation_joint
+  joint: br_caster_rotation_joint
   required_drive_mode: 1
-b_caster_rotation_joint_position_controller:
+bl_caster_rotation_joint_position_controller:
   type: position_controllers/JointPositionController
-  joint: b_caster_rotation_joint
+  joint: bl_caster_rotation_joint
   required_drive_mode: 1
 
 ## twist_controller
@@ -36,12 +36,12 @@ twist_controller:
       dd_phi_max: 40.0
 
   wheels: &wheels # start front left, counter-clockwise for base_drive_chain compatibility
-    - steer: fl_caster_rotation_joint
-      drive: fl_caster_r_wheel_joint
-    - steer: b_caster_rotation_joint
-      drive: b_caster_r_wheel_joint
-    - steer: fr_caster_rotation_joint
-      drive: fr_caster_r_wheel_joint
+    - steer: f_caster_rotation_joint
+      drive: f_caster_r_wheel_joint
+    - steer: bl_caster_rotation_joint
+      drive: bl_caster_r_wheel_joint
+    - steer: br_caster_rotation_joint
+      drive: br_caster_r_wheel_joint
 
 ## odometry_controller
 odometry_controller:
